@@ -1,7 +1,8 @@
 body {
   font-family: Arial, sans-serif;
-  background: #1e1e2f;
-  background-image: url("assets/images/background.png");
+  background: #1e1e2f url("assets/images/background.png") no-repeat center
+    center fixed;
+  background-size: cover;
   color: #fff;
   text-align: center;
   margin: 0;
@@ -46,7 +47,12 @@ h1 {
   margin-bottom: 8px;
 }
 
-button {
+.casilla p {
+  margin-top: 8px;
+}
+
+/* ✅ Botones dentro de las casillas */
+.casilla button {
   margin-top: 5px;
   padding: 6px 12px;
   cursor: pointer;
@@ -55,16 +61,14 @@ button {
   border: none;
   border-radius: 4px;
   transition: background 0.3s;
+  font-size: 14px;
 }
 
-button:hover {
+.casilla button:hover {
   background: #45a049;
 }
 
-.casilla p {
-  margin-top: 8px;
-}
-
+/* 🔄 Botón reiniciar */
 #reiniciar {
   margin-top: 20px;
   padding: 10px 20px;
@@ -75,30 +79,37 @@ button:hover {
   border-radius: 6px;
   font-size: 16px;
   transition: background 0.3s;
+  display: inline-block;
 }
 
 #reiniciar:hover {
   background: #c0392b;
 }
 
+/* 🔊 Botón música */
 #music-btn {
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
   margin: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #music-btn:hover {
   color: #b30000;
 }
 
+/* 🎚️ Slider volumen */
 #volume-slider {
   width: 150px;
   margin-left: 10px;
   vertical-align: middle;
 }
 
+/* 🎄 Footer */
 .footer {
   background: linear-gradient(135deg, #0f0f13, #1c1c24);
   color: #f0f0f0;

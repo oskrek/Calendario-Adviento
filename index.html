@@ -7,11 +7,15 @@
   </head>
   <body>
     <h1>🎄 Calendario de Adviento 🎮</h1>
-    <button id="music-btn">
+
+    <!-- Botón de música -->
+    <button id="music-btn" aria-label="Controlar música">
       <span id="music-icon">🔇</span>
     </button>
 
+    <!-- Música de fondo -->
     <audio id="bg-music" src="assets/sbg.mp3" loop></audio>
+
     <!-- Barra de volumen -->
     <input
       type="range"
@@ -22,10 +26,15 @@
       value="1"
     />
 
+    <!-- Calendario -->
     <div id="calendario"></div>
+
+    <!-- Botón reiniciar -->
     <button id="reiniciar">🔄 Reiniciar calendario</button>
+
     <script src="script.js"></script>
 
+    <!-- Footer -->
     <footer class="footer">
       <div class="footer-content">
         <h2>Calendario de adviento creado por los Aitoners</h2>
