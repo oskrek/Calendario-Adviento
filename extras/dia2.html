@@ -2,28 +2,48 @@
   .sorpresa-dia2 {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, #004d00, #b30000);
+    background-color: #b30000; /* rojo sólido navideño */
     color: #fff;
     border-radius: 10px;
+
+    /* 🔑 Centrado en la página */
+    max-width: 800px; /* ancho máximo */
+    margin: 40px auto; /* auto centra horizontalmente */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   }
 
   .sorpresa-dia2 iframe {
     margin-top: 20px;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    width: 100%; /* ocupa todo el ancho del contenedor */
+    height: 500px; /* altura controlada */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   }
 </style>
 <div class="sorpresa-dia2">
   <h2>✨ Sorpresa del Día 2 ✨</h2>
-  <p>
-    Hoy descubrirás un portal secreto que te lleva a otra página misteriosa… 🎄
-  </p>
+  <p>Hoy descubrirás un portal secreto que se puede refrescar con un clic 🎁</p>
 
-  <!-- Aquí se renderiza la página externa -->
+  <!-- Iframe que carga el URL -->
   <iframe
-    src="https://view.genially.com/69306caf7c91301b8b2de156/interactive-content-decoracion-navidena"
+    id="portal-dia2"
+    src="https://ejemplo.com"
     width="100%"
     height="600"
     style="border: none; border-radius: 10px"
   >
   </iframe>
+
+  <!-- Botón para recargar solo el iframe -->
+  <button id="reload-iframe">🔄 Recargar portal</button>
 </div>
+
+<script>
+  const reloadBtn = document.getElementById("reload-iframe");
+  const iframe = document.getElementById("portal-dia2");
+
+  reloadBtn.addEventListener("click", () => {
+    // Recarga el iframe manteniendo el mismo src
+    iframe.src = iframe.src;
+  });
+</script>
