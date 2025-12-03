@@ -4,58 +4,6 @@
     <meta charset="UTF-8" />
     <title>Sorpresa Misteriosa</title>
     <link rel="stylesheet" href="style-sorpresa.css" />
-    <style>
-      /* Overlay de carga */
-      #loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at center, #b30000, #000);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        animation: fadeOut 1s ease forwards;
-        animation-delay: 3s; /* tiempo que dura visible */
-      }
-
-      #loader img {
-        width: 150px;
-        height: auto;
-        animation: bounce 1.5s infinite;
-      }
-
-      /* Animación de rebote para el regalo */
-      @keyframes bounce {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-20px);
-        }
-      }
-
-      /* Desvanecimiento del loader */
-      @keyframes fadeOut {
-        to {
-          opacity: 0;
-          visibility: hidden;
-        }
-      }
-
-      /* Ocultar contenido mientras carga */
-      #contenido-wrapper {
-        opacity: 0;
-        transition: opacity 1s ease;
-      }
-
-      body.loaded #contenido-wrapper {
-        opacity: 1;
-      }
-    </style>
   </head>
   <body>
     <!-- Loader navideño -->
