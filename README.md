@@ -11,3 +11,24 @@ Un calendario interactivo de adviento hecho con **HTML, CSS y JavaScript**, pens
 - Botón de **reinicio** para volver a empezar desde cero.
 
 ## 📂 Estructura del proyecto
+/index.html /style.css /script.js /sorpresa.html /style-sorpresa.css /extras/ dia1.html dia5.html dia10.html dia25.html
+
+
+## 🚀 Cómo usar
+1. Clona o descarga este repositorio.
+2. Abre el proyecto en tu editor (VS Code recomendado).
+3. Usa **Live Server** o cualquier servidor local para evitar problemas de CORS.
+4. Abre `index.html` en tu navegador.
+5. Haz clic en los días desbloqueados para descubrir las sorpresas.
+
+## 🌐 Publicación en GitHub Pages
+Este proyecto está disponible en GitHub Pages:  
+👉 [https://tuusuario.github.io/calendario-adviento](https://tuusuario.github.io/calendario-adviento)
+
+## 🎁 Personalización
+- Edita los archivos en `/extras` para añadir tus propias sorpresas.
+- Cambia estilos en `style.css` y `style-sorpresa.css` para darle tu toque único.
+- Puedes añadir carruseles, videos, imágenes o cualquier sección HTML en los extras.
+
+## 📜 Licencia
+Este proyecto es de uso libre para fines personales y educativos.
