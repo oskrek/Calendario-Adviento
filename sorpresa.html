@@ -60,17 +60,18 @@
           console.log("Sin extra para este día:", err.message);
         });
 
-      // Buscar los elementos
-      const reloadBtn = document.getElementById("reload-iframe");
-      const iframe = document.getElementById("portal-dia2");
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("#reload-iframe");
+        if (!btn) return;
 
-      // Solo agregar el evento si existen
-      if (reloadBtn && iframe) {
-        reloadBtn.addEventListener("click", () => {
-          // Recarga el iframe manteniendo el mismo src
-          iframe.src = iframe.src;
-        });
-      }
+        const iframe = document.getElementById("portal-dia2");
+        if (!iframe) return;
+
+        const originalSrc = iframe.getAttribute("src");
+        const url = new URL(originalSrc, window.location.href);
+        url.searchParams.set("_t", Date.now());
+        iframe.src = url.toString();
+      });
     </script>
   </body>
 </html>
