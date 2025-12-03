@@ -4,25 +4,76 @@
   <meta charset="UTF-8">
   <title>Sorpresa Misteriosa</title>
   <link rel="stylesheet" href="style-sorpresa.css">
+  <style>
+    /* Overlay de carga */
+    #loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle at center, #b30000, #000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease forwards;
+      animation-delay: 3s; /* tiempo que dura visible */
+    }
+
+    #loader img {
+      width: 150px;
+      height: auto;
+      animation: bounce 1.5s infinite;
+    }
+
+    /* Animación de rebote para el regalo */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Desvanecimiento del loader */
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* Ocultar contenido mientras carga */
+    #contenido-wrapper {
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    body.loaded #contenido-wrapper {
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
-  <h1 id="titulo"></h1>
-  <p id="contenido"></p>
+  <!-- Loader navideño -->
+  <div id="loader">
+    <!-- Aquí pones tu GIF de regalo -->
+    <img src="assets/images/regalo.PNG" alt="Cargando sorpresa...">
+  </div>
 
-  <!-- Div donde se insertará el contenido extra -->
-  <div id="extra"></div>
-
-  <a href="index.html">⬅️ Volver al calendario</a>
+  <!-- Contenido real -->
+  <div id="contenido-wrapper">
+    <h1 id="titulo"></h1>
+    <p id="contenido"></p>
+    <div id="extra"></div>
+    <a href="index.html">⬅️ Volver al calendario</a>
+  </div>
 
   <script>
+    // Detectar cuando la página terminó de cargar
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
     // Obtener el parámetro "dia" de la URL
     const params = new URLSearchParams(window.location.search);
     const dia = params.get("dia");
 
-    // Mostrar título y texto
     document.getElementById("titulo").textContent = `🎁 Sorpresa del Día ${dia}`;
 
-    // Mensajes básicos (puedes personalizar aquí)
     const sorpresas = {
       1: "Un susurro en la oscuridad... 🎄",
       5: "Un secreto gamer oculto 😎",
@@ -35,7 +86,6 @@
 
     // Cargar automáticamente un archivo extra si existe
     const rutaExtra = `extras/dia${dia}.html`;
-
     fetch(rutaExtra)
       .then(response => {
         if (!response.ok) throw new Error("No existe archivo extra para este día");
