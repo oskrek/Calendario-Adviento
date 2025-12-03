@@ -3,11 +3,69 @@
     <button class="carrusel-btn prev">⟨</button>
     <div class="carrusel-ventana">
       <div class="carrusel-imagenes">
-        <img src="assets/images/dia1/grinchtor.png" alt="Aitorvide como el grinch">
-        <img src="assets/images/dia1/esoaitor.jpg" alt="Payaso">
-        <img src="assets/images/dia1/santaitor.png" alt="Aitor santa">
+        <img
+          src="assets/images/dia1/grinchtor.png"
+          alt="Aitorvide como el grinch"
+        />
+        <img src="assets/images/dia1/esoaitor.jpg" alt="Payaso" />
+        <img src="assets/images/dia1/santaitor.png" alt="Aitor santa" />
       </div>
     </div>
     <button class="carrusel-btn next">⟩</button>
   </div>
+  <!-- Indicadores -->
+  <div class="carrusel-indicadores"></div>
 </section>
+
+<script>
+  const carrusel = document.querySelector(".carrusel-imagenes");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const indicadores = document.querySelector(".carrusel-indicadores");
+
+  let index = 0;
+  const total = carrusel.children.length;
+
+  // Crear indicadores dinámicamente
+  for (let i = 0; i < total; i++) {
+    const punto = document.createElement("span");
+    if (i === 0) punto.classList.add("activo");
+    punto.addEventListener("click", () => {
+      index = i;
+      mostrarImagen();
+      actualizarIndicadores();
+    });
+    indicadores.appendChild(punto);
+  }
+
+  function mostrarImagen() {
+    const ancho = carrusel.querySelector("img").clientWidth;
+    carrusel.style.transform = `translateX(${-index * ancho}px)`;
+  }
+
+  function actualizarIndicadores() {
+    document.querySelectorAll(".carrusel-indicadores span").forEach((p, i) => {
+      p.classList.toggle("activo", i === index);
+    });
+  }
+
+  // Botones
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % total;
+    mostrarImagen();
+    actualizarIndicadores();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + total) % total;
+    mostrarImagen();
+    actualizarIndicadores();
+  });
+
+  // Auto-play cada 5 segundos
+  setInterval(() => {
+    index = (index + 1) % total;
+    mostrarImagen();
+    actualizarIndicadores();
+  }, 5000);
+</script>
