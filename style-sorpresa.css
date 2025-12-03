@@ -206,7 +206,7 @@ body::before {
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  box-shadow: 0 0 15px rgba(250, 246, 246, 0.705);
   transition: all 0.3s ease;
 }
 
@@ -217,4 +217,5 @@ body::before {
   text-shadow: 0 0 10px #fff;
   transform: scale(1.1);         /* se agranda un poco */
 }
+
 
