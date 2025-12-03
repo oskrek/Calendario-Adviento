@@ -59,6 +59,18 @@
         .catch((err) => {
           console.log("Sin extra para este día:", err.message);
         });
+
+      // Buscar los elementos
+      const reloadBtn = document.getElementById("reload-iframe");
+      const iframe = document.getElementById("portal-dia2");
+
+      // Solo agregar el evento si existen
+      if (reloadBtn && iframe) {
+        reloadBtn.addEventListener("click", () => {
+          // Recarga el iframe manteniendo el mismo src
+          iframe.src = iframe.src;
+        });
+      }
     </script>
   </body>
 </html>
