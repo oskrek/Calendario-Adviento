@@ -76,3 +76,22 @@ button:hover {
 #reiniciar:hover {
   background: #c0392b;
 }
+
+#music-btn {
+  background: none;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#music-btn:hover {
+  color: #b30000;
+}
+
+#volume-slider {
+  width: 150px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+

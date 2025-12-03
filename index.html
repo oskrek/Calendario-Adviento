@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Calendario de Adviento Gamer</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <h1>🎄 Calendario de Adviento 🎮</h1>
-  <div id="calendario"></div>
-  <button id="reiniciar">🔄 Reiniciar calendario</button>
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calendario de Adviento Gamer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>🎄 Calendario de Adviento 🎮</h1>
+    <button id="music-btn">
+      <span id="music-icon">🔇</span>
+    </button>
+
+    <audio id="bg-music" src="assets/sbg.mp3" loop></audio>
+    <!-- Barra de volumen -->
+    <input
+      type="range"
+      id="volume-slider"
+      min="0"
+      max="1"
+      step="0.1"
+      value="1"
+    />
+
+    <div id="calendario"></div>
+    <button id="reiniciar">🔄 Reiniciar calendario</button>
+    <script src="script.js"></script>
+  </body>
 </html>

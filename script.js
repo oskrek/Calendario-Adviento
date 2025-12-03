@@ -86,3 +86,28 @@ window.addEventListener("pageshow", (event) => {
     renderCalendario();
   }
 });
+
+const musicBtn = document.getElementById("music-btn");
+const musicIcon = document.getElementById("music-icon");
+const bgMusic = document.getElementById("bg-music");
+const volumeSlider = document.getElementById("volume-slider");
+
+let isPlaying = false;
+
+// Botón de música
+musicBtn.addEventListener("click", () => {
+  if (isPlaying) {
+    bgMusic.pause();
+    musicIcon.textContent = "🔇"; // mute icon
+  } else {
+    bgMusic.play();
+    musicIcon.textContent = "🔊"; // sound icon
+  }
+  isPlaying = !isPlaying;
+});
+
+// Barra de volumen
+volumeSlider.addEventListener("input", () => {
+  bgMusic.volume = volumeSlider.value; // ajusta volumen entre 0 y 1
+});
+
