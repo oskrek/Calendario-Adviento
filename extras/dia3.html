@@ -8,7 +8,10 @@
     grid-auto-columns: 100%;
     scroll-snap-type: x mandatory;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+    /* 👇 centrado horizontal */
+    margin: 0 auto;
   }
   .slide {
     position: relative;
@@ -26,7 +29,7 @@
     position: absolute;
     left: 16px;
     bottom: 16px;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0, 0, 0, 0.45);
     color: #fff;
     padding: 8px 12px;
     border-radius: 10px;
@@ -37,15 +40,27 @@
 
 <div class="snap-slider">
   <div class="slide" data-caption="Montañas al amanecer">
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop" alt="Montañas al amanecer">
+    <img
+      src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop"
+      alt="Montañas al amanecer"
+    />
   </div>
   <div class="slide" data-caption="Bosque nevado">
-    <img src="https://images.unsplash.com/photo-1500530855697-6d1c9dfaf1e1?q=80&w=1600&auto=format&fit=crop" alt="Bosque nevado">
+    <img
+      src="https://images.unsplash.com/photo-1500530855697-6d1c9dfaf1e1?q=80&w=1600&auto=format&fit=crop"
+      alt="Bosque nevado"
+    />
   </div>
   <div class="slide" data-caption="Costa luminosa">
-    <img src="https://images.unsplash.com/photo-1500530855697-0b3cc70bd47c?q=80&w=1600&auto=format&fit=crop" alt="Costa luminosa">
+    <img
+      src="https://images.unsplash.com/photo-1500530855697-0b3cc70bd47c?q=80&w=1600&auto=format&fit=crop"
+      alt="Costa luminosa"
+    />
   </div>
   <div class="slide" data-caption="Ciudad nocturna">
-    <img src="https://images.unsplash.com/photo-1500530855697-ff9e8e4a1c85?q=80&w=1600&auto=format&fit=crop" alt="Ciudad nocturna">
+    <img
+      src="https://images.unsplash.com/photo-1500530855697-ff9e8e4a1c85?q=80&w=1600&auto=format&fit=crop"
+      alt="Ciudad nocturna"
+    />
   </div>
 </div>
