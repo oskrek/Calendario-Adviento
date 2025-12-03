@@ -15,13 +15,3 @@
   <!-- Botón para recargar solo el iframe -->
   <button id="reload-iframe">Recargar portal</button>
 </div>
-
-<script>
-  const reloadBtn = document.getElementById("reload-iframe");
-  const iframe = document.getElementById("portal-dia2");
-
-  reloadBtn.addEventListener("click", () => {
-    // Recarga el iframe manteniendo el mismo src
-    iframe.src = iframe.src;
-  });
-</script>
