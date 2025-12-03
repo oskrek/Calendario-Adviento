@@ -196,3 +196,25 @@ body::before {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
+
+#reload-iframe {
+  font-size: 1.4em;              /* 🔑 más grande */
+  padding: 15px 30px;            /* más espacio interno */
+  background: #b30000;           /* rojo navideño */
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+/* Efecto festivo al pasar el mouse */
+#reload-iframe:hover {
+  background: #008000;           /* verde navideño */
+  color: #ffd700;                /* dorado */
+  text-shadow: 0 0 10px #fff;
+  transform: scale(1.1);         /* se agranda un poco */
+}
+
