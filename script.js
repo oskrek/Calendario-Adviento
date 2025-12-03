@@ -76,3 +76,13 @@ document.getElementById("reiniciar").onclick = () => {
 
 // Render inicial
 renderCalendario();
+
+// 🔄 Refrescar al volver con botón atrás del navegador
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    // Si la página viene de caché (back/forward cache)
+    window.location.reload();
+  } else {
+    renderCalendario();
+  }
+});
