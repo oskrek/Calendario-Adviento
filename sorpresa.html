@@ -111,31 +111,6 @@
         .catch((err) => {
           console.log("Sin extra para este día:", err.message);
         });
-
-      const carrusel = document.querySelector(".carrusel-imagenes");
-      const prevBtn = document.querySelector(".prev");
-      const nextBtn = document.querySelector(".next");
-
-      let index = 0;
-
-      function mostrarImagen() {
-        const ancho = carrusel.querySelector("img").clientWidth;
-        carrusel.style.transform = `translateX(${-index * ancho}px)`;
-      }
-
-      nextBtn.addEventListener("click", () => {
-        if (index < carrusel.children.length - 1) {
-          index++;
-          mostrarImagen();
-        }
-      });
-
-      prevBtn.addEventListener("click", () => {
-        if (index > 0) {
-          index--;
-          mostrarImagen();
-        }
-      });
     </script>
   </body>
 </html>
