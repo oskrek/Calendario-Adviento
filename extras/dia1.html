@@ -1,39 +1,88 @@
+<style>
+    .carrusel {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  position: relative;
+}
+
+.carrusel-contenedor {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.carrusel-ventana {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.carrusel-imagenes {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carrusel-imagenes img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carrusel-btn {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+.carrusel-btn:hover {
+  background: rgba(179,0,0,0.8);
+}
+</style>
+
 <section class="carrusel">
   <div class="carrusel-contenedor">
     <button class="carrusel-btn prev">⟨</button>
-    <div class="carrusel-imagenes">
-      <img src="assets/images/dia1/grinchtor.png" alt="Aitorvide como el grinch">
-      <img src="assets/images/dia1/esoaitor.jpg" alt="Payaso">
-      <img src="assets/images/dia1/santaitor.png" alt="Aitor santa">
+    <div class="carrusel-ventana">
+      <div class="carrusel-imagenes">
+        <img src="assets/images/dia1/grinchtor.png" alt="Aitorvide como el grinch">
+        <img src="assets/images/dia1/esoaitor.jpg" alt="Payaso">
+        <img src="assets/images/dia1/santaitor.png" alt="Aitor santa">
+      </div>
     </div>
     <button class="carrusel-btn next">⟩</button>
   </div>
 </section>
 
+
 <script>
   const carrusel = document.querySelector(".carrusel-imagenes");
-  const prevBtn = document.querySelector(".prev");
-  const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
 
-  let index = 0;
+let index = 0;
 
-  function mostrarImagen() {
-    const ancho = carrusel.querySelector("img").clientWidth;
-    carrusel.style.transform = `translateX(${-index * ancho}px)`;
+function mostrarImagen() {
+  const ancho = carrusel.querySelector("img").clientWidth;
+  carrusel.style.transform = `translateX(${-index * ancho}px)`;
+}
+
+nextBtn.addEventListener("click", () => {
+  if (index < carrusel.children.length - 1) {
+    index++;
+    mostrarImagen();
   }
+});
 
-  nextBtn.addEventListener("click", () => {
-    if (index < carrusel.children.length - 1) {
-      index++;
-      mostrarImagen();
-    }
-  });
-
-  prevBtn.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      mostrarImagen();
-    }
-  });
-
+prevBtn.addEventListener("click", () => {
+  if (index > 0) {
+    index--;
+    mostrarImagen();
+  }
+});
 </script>
