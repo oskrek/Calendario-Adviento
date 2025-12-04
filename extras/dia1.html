@@ -19,6 +19,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 2rem;
   }
 
   .carousel {
@@ -27,7 +28,8 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
-    width: 100vw; /* ocupa todo el ancho de la pantalla */
+    width: 360px; /* tamaño fijo más pequeño */
+    max-width: 90vw;
   }
 
   .carousel::-webkit-scrollbar {
@@ -36,19 +38,21 @@
 
   .carousel-item {
     flex: none;
-    width: 100vw; /* cada imagen ocupa toda la pantalla */
-    margin: 0; /* elimina margen para que no se desplace mal */
+    width: 360px; /* igual al ancho del carrusel */
+    height: 540px; /* altura fija para mantener proporción vertical */
     scroll-snap-align: center;
     position: relative;
     border: 4px solid #e50914;
-    border-radius: 0; /* opcional: sin bordes si quieres estilo pantalla completa */
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 0 20px #e50914;
+    background-color: #000;
   }
 
   .carousel-item img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover; /* recorta o ajusta la imagen sin deformarla */
     display: block;
   }
 
@@ -59,7 +63,7 @@
     width: 100%;
     padding: 1rem;
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   /* Botones de navegación */
