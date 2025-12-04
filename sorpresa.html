@@ -81,6 +81,9 @@
           case 1:
             inicializarCarrusel();
             break;
+          case 4:
+            inicializarReproductor();
+            break;
         }
       }
 
@@ -128,6 +131,76 @@
           );
           if (newIndex !== index) updateIndicators(newIndex);
           index = newIndex;
+        });
+      }
+
+      function inicializarReproductor() {
+        const audio = document.getElementById("audio");
+        const playBtn = document.getElementById("play");
+        const pauseBtn = document.getElementById("pause");
+        const stopBtn = document.getElementById("stop");
+        const volume = document.getElementById("volume");
+        const statusEl = document.getElementById("status");
+        const timeEl = document.getElementById("time");
+
+        // Estado inicial
+        audio.volume = parseFloat(volume.value);
+
+        // Formatear tiempo mm:ss
+        function fmt(seconds) {
+          if (!isFinite(seconds)) return "00:00";
+          const m = Math.floor(seconds / 60);
+          const s = Math.floor(seconds % 60);
+          return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+        }
+
+        // Actualizar tiempo cada segundo
+        let timer = null;
+        function startTimer() {
+          if (timer) return;
+          timer = setInterval(() => {
+            timeEl.textContent = fmt(audio.currentTime);
+          }, 500);
+        }
+        function stopTimer() {
+          clearInterval(timer);
+          timer = null;
+        }
+
+        // Eventos de control
+        playBtn.addEventListener("click", () => {
+          audio.play();
+          statusEl.textContent = "Reproduciendo";
+          startTimer();
+        });
+
+        pauseBtn.addEventListener("click", () => {
+          audio.pause();
+          statusEl.textContent = "Pausado";
+          stopTimer();
+        });
+
+        stopBtn.addEventListener("click", () => {
+          audio.pause();
+          audio.currentTime = 0;
+          statusEl.textContent = "Detenido";
+          timeEl.textContent = "00:00";
+          stopTimer();
+        });
+
+        volume.addEventListener("input", () => {
+          audio.volume = parseFloat(volume.value);
+        });
+
+        // Estado cuando termina
+        audio.addEventListener("ended", () => {
+          statusEl.textContent = "Finalizado";
+          stopTimer();
+        });
+
+        // Preparado
+        audio.addEventListener("canplay", () => {
+          statusEl.textContent = "Listo";
         });
       }
     </script>
