@@ -96,9 +96,29 @@
   .indicators .active {
     background-color: #e50914;
   }
+
+  .carousel-overlay {
+    position: absolute;
+    top: -60px; /* ajusta según lo alto que quieras */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(229, 9, 20, 0.85); /* rojo festivo con transparencia */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
+    z-index: 20; /* encima del carrusel */
+    text-align: center;
+  }
 </style>
 <div class="container">
   <div class="carousel-container">
+    <div class="carousel-overlay">
+      <p>Portadas de películas hechas con IA inspiradas en Aoyarvide</p>
+      <p>📌 Para ver la portada más grande da clic en la imagen</p>
+    </div>
     <button class="nav prev">⟨</button>
     <div class="carousel" id="carousel">
       <div class="carousel-item">
@@ -107,7 +127,7 @@
       </div>
       <div class="carousel-item">
         <img src="assets/images/dia1/cuentonavidad.png" alt="Película 2" />
-        <div class="caption">Cuento De Navidad </div>
+        <div class="caption">Cuento De Navidad</div>
       </div>
       <div class="carousel-item">
         <img src="assets/images/dia1/grinchtor.png" alt="Película 3" />
