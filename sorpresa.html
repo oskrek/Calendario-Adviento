@@ -175,6 +175,7 @@
         const volume = document.getElementById("volume");
         const statusEl = document.getElementById("status");
         const timeEl = document.getElementById("time");
+        const downloadBtn = document.getElementById("download");
 
         // Estado inicial
         audio.volume = parseFloat(volume.value);
@@ -234,6 +235,18 @@
         // Preparado
         audio.addEventListener("canplay", () => {
           statusEl.textContent = "Listo";
+        });
+        
+        // Descargar
+        downloadBtn.addEventListener("click", () => {
+          const src = audio.querySelector("source").src;
+          const fileName = src.split("/").pop();
+          const a = document.createElement("a");
+          a.href = src;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
         });
       }
     </script>
