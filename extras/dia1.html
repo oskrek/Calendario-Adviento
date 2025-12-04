@@ -97,27 +97,19 @@
     background-color: #e50914;
   }
 
-  .carousel-overlay {
-    position: absolute;
-    top: -60px; /* ajusta según lo alto que quieras */
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(229, 9, 20, 0.85); /* rojo festivo con transparencia */
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 0.7em;
-    font-weight: bold;
-    box-shadow: 0 0 12px rgba(229, 9, 20, 0.8);
-    z-index: 20; /* encima del carrusel */
+  .carousel-text {
     text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 </style>
-<div class="carousel-overlay">
-  <p>Portadas de películas hechas con IA inspiradas en Aoyarvide</p>
-  <p>📌 Para ver la portada más grande da clic en la imagen</p>
-</div>
 <div class="container">
+  <div class="carousel-text">
+    <p>Portadas de películas hechas con IA inspiradas en Aoyarvide</p>
+    <p>📌 Para ver la portada más grande da clic en la imagen</p>
+  </div>
   <div class="carousel-container">
     <button class="nav prev">⟨</button>
     <div class="carousel" id="carousel">
