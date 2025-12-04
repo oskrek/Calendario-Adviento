@@ -72,6 +72,11 @@ p {
   line-height: 1.6;
 }
 
+h2 {
+  font-size: 1.5em;
+  color: #fff;
+}
+
 .boton-container {
   text-align: center; /* centra el botón */
   margin-top: 20px;
