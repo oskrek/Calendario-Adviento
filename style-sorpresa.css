@@ -108,70 +108,11 @@ body::before {
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-.carrusel {
+#extra {
+  display: grid;
+  place-items: center; /* centra en ambos ejes */
+  min-height: 80vh;
   width: 100%;
-  max-width: 600px;
-  margin: 40px auto;
-  position: relative;
-}
-
-.carrusel-contenedor {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.carrusel-ventana {
-  overflow: hidden;
-  width: 100%;
-  border-radius: 10px;
-}
-
-.carrusel-imagenes {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
-
-.carrusel-imagenes img {
-  width: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.carrusel-btn {
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 10;
-}
-
-.carrusel-btn:hover {
-  background: rgba(179, 0, 0, 0.8);
-}
-
-/* Indicadores */
-.carrusel-indicadores {
-  text-align: center;
-  margin-top: 10px;
-}
-
-.carrusel-indicadores span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  margin: 0 5px;
-  background: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.carrusel-indicadores .activo {
-  background: #b30000;
 }
 
 .sorpresa-dia2 {
@@ -217,5 +158,4 @@ body::before {
   text-shadow: 0 0 10px #fff;
   transform: scale(1.1);         /* se agranda un poco */
 }
-
 
