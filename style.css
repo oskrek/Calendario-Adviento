@@ -101,16 +101,36 @@ button:hover {
   background: #c0392b;
 }
 
-#music-btn {
+/* 🎶 Estilo reproductor */
+.music-player {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background: linear-gradient(135deg, #2c2c3c, #3c3c4f);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 61, 110, 0.6);
+  margin: 20px auto;
+}
+
+.music-player button {
   background: none;
   border: none;
   font-size: 2em;
   cursor: pointer;
-  margin: 10px;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-#music-btn:hover {
-  color: #b30000;
+.music-player button:hover {
+  transform: scale(1.2);
+  color: #ff3d6e;
+}
+
+.music-player input[type="range"] {
+  width: 150px;
+  accent-color: #ff3d6e; /* color gamer festivo */
+  cursor: pointer;
 }
 
 #volume-slider {
