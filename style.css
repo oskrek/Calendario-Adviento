@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: #1e1e2f;
   background-image: url("assets/images/background.png");
   color: #fff;
@@ -21,19 +21,27 @@ h1 {
 }
 
 .encabezado {
+  background: linear-gradient(135deg, #2c2c3c, #3c3c4f);
+  border: 2px solid #00ffff; /* azul hielo */
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
   font-weight: bold;
-  background: #3c3c4f;
   padding: 10px;
   border-radius: 6px;
 }
 
 .casilla {
-  border: 2px solid #ccc;
+  background: linear-gradient(135deg, #2c2c3c, #3c3c4f);
+  border: 2px solid #00ffff; /* azul hielo */
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
   padding: 15px;
   text-align: center;
-  background: #2c2c3c;
   border-radius: 8px;
   min-height: 100px;
+}
+
+.casilla:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
 }
 
 .casilla span {
