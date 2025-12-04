@@ -40,7 +40,7 @@ function renderCalendario() {
     //dia <= hoy &&
     if (dia >= 26 && dia <= 31) {
       casilla.innerHTML += `<p>✨ Se acabó la magia ✨</p>`;
-    } else if (!estadoCasillas[dia - 1]) {
+    } else if (dia <= hoy && !estadoCasillas[dia - 1]) {
       // Crear botón con imagen
       const boton = document.createElement("button");
       boton.className = "abrir-regalo";
