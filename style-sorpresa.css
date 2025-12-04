@@ -111,7 +111,7 @@ body::before {
 #extra {
   display: grid;
   place-items: center; /* centra en ambos ejes */
-  min-height: 80vh;
+  min-height: 100vh;
   width: 100%;
 }
 
