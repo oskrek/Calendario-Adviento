@@ -139,9 +139,9 @@ body::before {
 }
 
 #reload-iframe {
-  font-size: 1.4em;              /* 🔑 más grande */
-  padding: 15px 30px;            /* más espacio interno */
-  background: #b30000;           /* rojo navideño */
+  font-size: 1.4em; /* 🔑 más grande */
+  padding: 15px 30px; /* más espacio interno */
+  background: #b30000; /* rojo navideño */
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -153,9 +153,39 @@ body::before {
 
 /* Efecto festivo al pasar el mouse */
 #reload-iframe:hover {
-  background: #008000;           /* verde navideño */
-  color: #ffd700;                /* dorado */
+  background: #008000; /* verde navideño */
+  color: #ffd700; /* dorado */
   text-shadow: 0 0 10px #fff;
-  transform: scale(1.1);         /* se agranda un poco */
+  transform: scale(1.1); /* se agranda un poco */
 }
 
+/* Overlay para imagen expandida */
+.image-modal {
+  display: none; /* oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 4px solid #e50914;
+  border-radius: 10px;
+  box-shadow: 0 0 30px #e50914;
+}
+
+.image-modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
