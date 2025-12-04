@@ -141,7 +141,7 @@ button:hover {
 
 /* 🎄 Footer */
 .footer {
-  background: linear-gradient(135deg, #0f0f13, #1c1c24);
+  background: linear-gradient(135deg, #8B5E3C, #A0522D);
   color: #f0f0f0;
   padding: 40px 20px;
   text-align: center;
@@ -160,7 +160,7 @@ button:hover {
 .footer h2 {
   margin-bottom: 10px;
   font-size: 1.6rem;
-  color: #ff3d6e; /* tono festivo */
+  color: #fff; /* tono festivo */
 }
 
 .footer p {
@@ -197,12 +197,13 @@ button:hover {
 
 /* 🎮 Header elegante */
 .main-header {
-  background: linear-gradient(135deg, #1c1c24, #2e2e3f);
+  background: linear-gradient(135deg, #8B5E3C, #A0522D);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 30px;
   border-bottom: 2px solid #3b5e36;
+  border-radius: 10px;
   position: sticky; /* se queda arriba al hacer scroll */
   top: 0;
   z-index: 1000;
@@ -215,13 +216,15 @@ button:hover {
 }
 
 .logo-icon {
-  font-size: 1.8rem;
+  width: 50px;   /* ajusta tamaño */
+  height: auto;
 }
+
 
 .site-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #ff3d6e; /* tono festivo gamer */
+  color: #fff; /* tono festivo gamer */
   margin: 0;
 }
 
