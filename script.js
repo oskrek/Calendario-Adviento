@@ -106,18 +106,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgMusic = document.getElementById("bg-music");
   const volumeSlider = document.getElementById("volume-slider");
 
+  // Configurar volumen inicial
   bgMusic.volume = 0.2;
   volumeSlider.value = 0.2;
 
-  bgMusic
-    .play()
-    .then(() => {
-      musicIcon.textContent = "🔊";
-    })
-    .catch((err) => {
-      console.log("El navegador bloqueó el autoplay:", err);
-    });
+  // Estado inicial: música pausada
+  musicIcon.textContent = "🔇";
 
+  // Al hacer clic en el botón
   musicBtn.addEventListener("click", () => {
     if (bgMusic.paused) {
       bgMusic.play();
