@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <title>Sorpresa Misteriosa</title>
     <link rel="stylesheet" href="style-sorpresa.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Loader navideño -->
@@ -18,7 +21,9 @@
       <h1 id="titulo"></h1>
       <p id="contenido"></p>
       <div id="extra"></div>
-      <a href="index.html">⬅️ Volver al calendario</a>
+      <div class="boton-container">
+        <a href="index.html" class="boton-link">⬅️ Volver al calendario</a>
+      </div>
     </div>
 
     <!-- Modal oculto -->
@@ -244,7 +249,7 @@
         audio.addEventListener("canplay", () => {
           statusEl.textContent = "Listo";
         });
-        
+
         // Descargar
         downloadBtn.addEventListener("click", () => {
           const src = audio.querySelector("source").src;

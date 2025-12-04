@@ -50,7 +50,7 @@ body.loaded #contenido-wrapper {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: radial-gradient(circle at top, #0d0d0d, #1a1a1a, #000);
   color: #e0e0e0;
   text-align: center;
@@ -72,7 +72,12 @@ p {
   line-height: 1.6;
 }
 
-a {
+.boton-container {
+  text-align: center; /* centra el botón */
+  margin-top: 20px;
+}
+
+.boton-link {
   display: inline-block;
   padding: 10px 20px;
   background: #222;
@@ -83,7 +88,7 @@ a {
   transition: all 0.3s ease;
 }
 
-a:hover {
+.boton-link:hover {
   background: #b30000;
   border-color: #b30000;
   text-shadow: 0 0 10px #ff0000;
