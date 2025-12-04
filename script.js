@@ -63,6 +63,7 @@ function renderCalendario() {
       casilla.appendChild(boton);
     } else if (estadoCasillas[dia - 1]) {
       casilla.innerHTML = `<span>${dia}</span><p>🎁 ¡Ya abierto!</p>`;
+      casilla.classList.add("abierto");
     } else {
       casilla.innerHTML += `<p>🔒 Bloqueado</p>`;
     }

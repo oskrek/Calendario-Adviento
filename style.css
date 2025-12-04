@@ -1,5 +1,5 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: #1e1e2f;
   background-image: url("assets/images/background.png");
   color: #fff;
@@ -48,6 +48,18 @@ h1 {
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
+}
+
+.casilla.abierto {
+  background: linear-gradient(135deg, #C0392B, #D35400); /* rojo cálido + jengibre */
+  border: 2px solid #00ffff; /* azul hielo */
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+  color: #fff; /* texto blanco para contraste */
+}
+
+.casilla.abierto span {
+  font-weight: bold;
+  color: #fff8dc; /* un toque crema para resaltar el número */
 }
 
 button {
@@ -149,7 +161,7 @@ button:hover {
 
 /* 🎄 Footer */
 .footer {
-  background: linear-gradient(135deg, #8B5E3C, #A0522D);
+  background: linear-gradient(135deg, #8b5e3c, #a0522d);
   color: #f0f0f0;
   padding: 40px 20px;
   text-align: center;
@@ -205,7 +217,7 @@ button:hover {
 
 /* 🎮 Header elegante */
 .main-header {
-  background: linear-gradient(135deg, #8B5E3C, #A0522D);
+  background: linear-gradient(135deg, #8b5e3c, #a0522d);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -224,10 +236,9 @@ button:hover {
 }
 
 .logo-icon {
-  width: 50px;   /* ajusta tamaño */
+  width: 50px; /* ajusta tamaño */
   height: auto;
 }
-
 
 .site-title {
   font-size: 1.5rem;
