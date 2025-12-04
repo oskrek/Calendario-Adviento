@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Sorpresa Misteriosa</title>
     <link rel="stylesheet" href="style-sorpresa.css" />
+    <script src="extras/dia1.js"></script>
   </head>
   <body>
     <!-- Loader navideño -->
@@ -47,6 +48,7 @@
 
       // Cargar automáticamente un archivo extra si existe
       const rutaExtra = `extras/dia${dia}.html`;
+      const rutaJs = `extras/dia${dia}.js`;
       fetch(rutaExtra)
         .then((response) => {
           if (!response.ok)
@@ -55,6 +57,7 @@
         })
         .then((html) => {
           document.getElementById("extra").innerHTML = html;
+          inicializarJs(dia);
         })
         .catch((err) => {
           console.log("Sin extra para este día:", err.message);
@@ -72,6 +75,14 @@
         url.searchParams.set("_t", Date.now());
         iframe.src = url.toString();
       });
+
+      function inicializarJs(dia){
+        switch(dia){
+          case 1:
+            inicializarDiaUno();
+            break;
+        }
+      }
     </script>
   </body>
 </html>
