@@ -1,0 +1,131 @@
+<style>
+  .container {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: transparent;
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 50vh; /* asegura que ocupe toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  /* Carrusel */
+  .carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+  }
+
+  .carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    width: 367px; /* tamaño fijo más pequeño */
+    max-width: 90vw;
+  }
+
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel-item {
+    flex: none;
+    width: 360px; /* igual al ancho del carrusel */
+    height: 540px; /* altura fija para mantener proporción vertical */
+    scroll-snap-align: center;
+    position: relative;
+    border: 4px solid #e50914;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #e50914;
+    background-color: #000;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* recorta o ajusta la imagen sin deformarla */
+    display: block;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  /* Botones de navegación */
+  .nav {
+    background: none;
+    border: none;
+    color: #e50914;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0 1rem;
+  }
+
+  /* Indicadores */
+  .indicators {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .indicators span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    background-color: #444;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+  }
+
+  .indicators .active {
+    background-color: #e50914;
+  }
+
+  .carousel-text {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #fff;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+</style>
+<div class="container">
+  <div class="carousel-text">
+    <p>
+      Portadas de películas hechas con IA inspiradas en Aoyarvide<br>
+      📌 Para ver la portada más grande da clic en la imagen
+    </p>
+  </div>
+  <div class="carousel-container">
+    <button class="nav prev">⟨</button>
+    <div class="carousel" id="carousel">
+      <div class="carousel-item">
+        <img src="assets/images/dia3/cartamimosa1.jpg" alt="Carta Mimosa 1" />
+        <div class="caption">Carta de Sofi</div>
+      </div>
+      <div class="carousel-item">
+        <img src="assets/images/dia3/cartamimosa2.png" alt="Carta Mimosa 1" />
+        <div class="caption">Carta de ErikRa</div>
+      </div>
+    </div>
+    <button class="nav next">⟩</button>
+  </div>
+
+  <div class="indicators" id="indicators"></div>
+</div>
