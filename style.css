@@ -61,6 +61,30 @@ button:hover {
   margin-top: 8px;
 }
 
+.abrir-regalo {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.abrir-regalo:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.icono-regalo {
+  width: 50px; /* ajusta tamaño */
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 61, 110, 0.7);
+  transition: box-shadow 0.3s ease;
+}
+
+.abrir-regalo:hover .icono-regalo {
+  box-shadow: 0 0 20px rgba(255, 61, 110, 1);
+}
+
 #reiniciar {
   margin-top: 20px;
   padding: 10px 20px;
@@ -100,9 +124,17 @@ button:hover {
   background: linear-gradient(135deg, #0f0f13, #1c1c24);
   color: #f0f0f0;
   padding: 40px 20px;
-  margin-top: 40px;
   text-align: center;
   border-top: 2px solid #3b5e36;
+  position: fixed; /* siempre al fondo */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
 }
 
 .footer h2 {
@@ -141,4 +173,96 @@ button:hover {
   margin-top: 20px;
   font-size: 0.9rem;
   opacity: 0.7;
+}
+
+/* 🎮 Header elegante */
+.main-header {
+  background: linear-gradient(135deg, #1c1c24, #2e2e3f);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 2px solid #3b5e36;
+  position: sticky; /* se queda arriba al hacer scroll */
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 1.8rem;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff3d6e; /* tono festivo gamer */
+  margin: 0;
+}
+
+.nav-bar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.nav-bar a:hover {
+  color: #ff3d6e;
+  text-shadow: 0 0 8px #ff3d6e;
+}
+
+#modo-festivo {
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#modo-festivo:hover {
+  background: #45a049;
+  transform: scale(1.05);
+}
+
+.nieve-contenedor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* no bloquea clics */
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* ❄️ Copos */
+.copo {
+  position: absolute;
+  top: -10px;
+  color: #fff;
+  animation-name: caer;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes caer {
+  to {
+    transform: translateY(100vh);
+  }
 }
