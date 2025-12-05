@@ -56,8 +56,9 @@ function renderCalendario() {
       boton.onclick = () => {
         estadoCasillas[dia - 1] = true;
         localStorage.setItem("estadoCasillas", JSON.stringify(estadoCasillas));
+        localStorage.setItem(`tokenDia${dia}`, crypto.randomUUID())
         // Redirección con parámetro en la URL
-        window.location.href = `sorpresa.html?dia=${dia}`;
+        window.location.href = `sorpresa.html?dia=${dia}&token=${token}`;
       };
 
       casilla.appendChild(boton);
@@ -176,5 +177,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
-
-

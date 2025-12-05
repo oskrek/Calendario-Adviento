@@ -41,6 +41,15 @@
       // Obtener el parámetro "dia" de la URL
       const params = new URLSearchParams(window.location.search);
       const dia = params.get("dia");
+      const token = params.get("token");
+      const tokenEsperado = sessionStorage.getItem(`tokenDia${dia}`);
+
+      if (token !== tokenEsperado) {
+        alert("No puedes ver este contenido. Serás redirigido al calendario.");
+        window.location.href = "index.html";
+      } else {
+        sessionStorage.removeItem(`tokenDia${dia}`);
+      }
 
       document.getElementById(
         "titulo"
