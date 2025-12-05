@@ -54,9 +54,10 @@ function renderCalendario() {
       boton.appendChild(icono);
 
       boton.onclick = () => {
+        let token = crypto.randomUUID();
         estadoCasillas[dia - 1] = true;
         localStorage.setItem("estadoCasillas", JSON.stringify(estadoCasillas));
-        localStorage.setItem(`tokenDia${dia}`, crypto.randomUUID())
+        sessionStorage.setItem(`tokenDia${dia}`, token)
         // Redirección con parámetro en la URL
         window.location.href = `sorpresa.html?dia=${dia}&token=${token}`;
       };
