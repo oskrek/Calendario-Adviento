@@ -104,6 +104,32 @@
     margin-top: 0.8rem;
     margin-bottom: 0.8rem;
   }
+
+  .download-all button {
+    background: linear-gradient(135deg, #ff004c, #ff7b00);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255, 0, 76, 0.7), 0 0 24px rgba(255, 123, 0, 0.6);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .download-all button:hover {
+    background: linear-gradient(135deg, #ff7b00, #ff004c);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(255, 123, 0, 0.9), 0 0 40px rgba(255, 0, 76, 0.8);
+  }
+
+  .download-all button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(255, 0, 76, 0.6);
+  }
 </style>
 <div class="container">
   <div class="carousel-text">
@@ -132,5 +158,8 @@
   </div>
 
   <div class="indicators" id="indicators"></div>
-</div>
 
+  <div class="download-all">
+    <button id="downloadAllBtn">Descargar imagenes</button>
+  </div>
+</div>
