@@ -51,7 +51,11 @@ h1 {
 }
 
 .casilla.abierto {
-  background: linear-gradient(135deg, #C0392B, #D35400); /* rojo cálido + jengibre */
+  background: linear-gradient(
+    135deg,
+    #c0392b,
+    #d35400
+  ); /* rojo cálido + jengibre */
   border: 2px solid #00ffff; /* azul hielo */
   box-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
   color: #fff; /* texto blanco para contraste */
@@ -105,7 +109,7 @@ button:hover {
   box-shadow: 0 0 20px rgba(255, 61, 110, 1);
 }
 
-#reiniciar {
+#reiniciar #reiniciarDiaX {
   margin-top: 20px;
   padding: 10px 20px;
   cursor: pointer;
@@ -118,6 +122,22 @@ button:hover {
 }
 
 #reiniciar:hover {
+  background: #c0392b;
+}
+
+#reiniciarDiaX {
+  margin-top: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+#reiniciarDiaX:hover {
   background: #c0392b;
 }
 
