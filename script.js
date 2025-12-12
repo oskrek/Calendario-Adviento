@@ -93,15 +93,6 @@ document.getElementById("reiniciar").onclick = () => {
   renderCalendario();
 };
 
-document.getElementById("reiniciarDiaX").onclick = () => {
-  let estadoCasillas =
-    JSON.parse(localStorage.getItem("estadoCasillas")) ||
-    Array(totalDias).fill(false);
-  estadoCasillas[8] = false;
-  localStorage.setItem("estadoCasillas", JSON.stringify(estadoCasillas));
-  renderCalendario();
-};
-
 // Render inicial
 renderCalendario();
 

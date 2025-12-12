@@ -125,22 +125,6 @@ button:hover {
   background: #c0392b;
 }
 
-#reiniciarDiaX {
-  margin-top: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  background: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: background 0.3s;
-}
-
-#reiniciarDiaX:hover {
-  background: #c0392b;
-}
-
 /* 🎶 Estilo reproductor */
 .music-player {
   display: inline-flex;
