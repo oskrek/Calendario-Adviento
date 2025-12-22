@@ -77,6 +77,12 @@
         17: "Adivina El Aitoner II",
         18: "FanArts II",
         19: "Rompecabezas II",
+        20: "Juego",
+        21: "Rompecabezas III",
+        22: "Canción De Suno III",
+        23: "Premios De La Comunidad",
+        24: "Clips Del Año",
+        25: "Rompecabezas",
       };
 
       document.getElementById("contenido").textContent =
@@ -129,6 +135,9 @@
           case 7:
           case 14:
             inicializarReproductor();
+            break;
+          case 22:
+            inicializarReproductor2();
             break;
         }
       }
@@ -329,7 +338,159 @@
           document.body.removeChild(a);
         });
       }
+      function inicializarReproductor2() {
+        const audio = document.getElementById("audio");
+        const playBtn = document.getElementById("play");
+        const pauseBtn = document.getElementById("pause");
+        const stopBtn = document.getElementById("stop");
+        const volume = document.getElementById("volume");
+        const statusEl = document.getElementById("status");
+        const timeEl = document.getElementById("time");
+        const downloadBtn = document.getElementById("download");
+        const titleEl = document.getElementById("track-title");
+        const artistEl = document.getElementById("track-artist");
+        const playlistEl = document.getElementById("playlist");
+
+        // 🎵 Playlist
+        const playlist = [
+          {
+            src: "assets/canciones/corrido del rey del bug.mp3",
+            title: "El rey del bug",
+            artist: "Aitoners Group",
+          }/*,
+          {
+            src: "media/festive_theme.mp3",
+            title: "Cancion de Lu",
+            artist: "Aitoners Group",
+          }*/,
+          {
+            src: "assets/canciones/La cumbia aitoner.mp3",
+            title: "Streamer de 20 viewers",
+            artist: "Aitoners Group",
+          },
+          ,
+          {
+            src: "assets/canciones/Villancicovide.mp3",
+            title: "VillancicoVide",
+            artist: "Aitoners Group",
+          }
+        ];
+        let currentIndex = 0;
+
+        // Formatear tiempo mm:ss
+        function fmt(seconds) {
+          if (!isFinite(seconds)) return "00:00";
+          const m = Math.floor(seconds / 60);
+          const s = Math.floor(seconds % 60);
+          return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
+        }
+
+        // Timer
+        let timer = null;
+        function startTimer() {
+          if (timer) return;
+          timer = setInterval(() => {
+            timeEl.textContent = fmt(audio.currentTime);
+          }, 500);
+        }
+        function stopTimer() {
+          clearInterval(timer);
+          timer = null;
+        }
+
+        // 🎼 Cargar canción
+        function cargarCancion(index) {
+          const track = playlist[index];
+          if (!track) return;
+          audio.src = track.src;
+          titleEl.textContent = track.title;
+          artistEl.textContent = track.artist;
+          timeEl.textContent = "00:00";
+          statusEl.textContent = "Listo";
+          marcarActivo(index);
+        }
+
+        // 🎨 Pintar lista
+        function renderPlaylist() {
+          playlistEl.innerHTML = "";
+          playlist.forEach((track, i) => {
+            const div = document.createElement("div");
+            div.className = "track";
+            div.textContent = `${track.title} — ${track.artist}`;
+            div.addEventListener("click", () => {
+              currentIndex = i;
+              cargarCancion(currentIndex);
+              audio.play();
+              statusEl.textContent = "Reproduciendo";
+              startTimer();
+            });
+            playlistEl.appendChild(div);
+          });
+          marcarActivo(currentIndex);
+        }
+
+        // 🔴 Resaltar canción activa
+        function marcarActivo(index) {
+          [...playlistEl.children].forEach((el, i) => {
+            el.classList.toggle("active", i === index);
+          });
+        }
+
+        // Controles
+        playBtn.addEventListener("click", () => {
+          audio.play();
+          statusEl.textContent = "Reproduciendo";
+          startTimer();
+        });
+
+        pauseBtn.addEventListener("click", () => {
+          audio.pause();
+          statusEl.textContent = "Pausado";
+          stopTimer();
+        });
+
+        stopBtn.addEventListener("click", () => {
+          audio.pause();
+          audio.currentTime = 0;
+          statusEl.textContent = "Detenido";
+          timeEl.textContent = "00:00";
+          stopTimer();
+        });
+
+        volume.addEventListener("input", () => {
+          audio.volume = parseFloat(volume.value);
+        });
+
+        audio.addEventListener("ended", () => {
+          statusEl.textContent = "Finalizado";
+          stopTimer();
+          // 🔄 Auto-next
+          currentIndex = (currentIndex + 1) % playlist.length;
+          cargarCancion(currentIndex);
+          audio.play();
+          statusEl.textContent = "Reproduciendo";
+          startTimer();
+        });
+
+        audio.addEventListener("canplay", () => {
+          statusEl.textContent = "Listo";
+        });
+
+        downloadBtn.addEventListener("click", () => {
+          const src = audio.src;
+          const fileName = src.split("/").pop();
+          const a = document.createElement("a");
+          a.href = src;
+          a.download = fileName;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        });
+
+        // Inicializar
+        cargarCancion(currentIndex);
+        renderPlaylist();
+      }
     </script>
   </body>
 </html>
-
