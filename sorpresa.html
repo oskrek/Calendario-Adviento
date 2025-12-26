@@ -14,8 +14,15 @@
   <body>
     <!-- Loader navideño -->
     <div id="loader">
-      <!-- Aquí pones tu GIF de regalo -->
-      <img src="assets/images/regalo.PNG" alt="Cargando sorpresa..." />
+      <div class="pantalla" id="pantalla-1">
+        <img src="assets/images/regalo.PNG" alt="Cargando sorpresa..." />
+      </div>
+      <div class="pantalla oculto" id="pantalla-2">
+        <h2>¿Estás preparado?</h2>
+      </div>
+      <div class="pantalla oculto" id="pantalla-3">
+        <h2>¡Cierra los ojos!</h2>
+      </div>
     </div>
 
     <!-- Contenido real -->
@@ -38,7 +45,64 @@
       // Detectar cuando la página terminó de cargar
       window.addEventListener("load", () => {
         document.body.classList.add("loaded");
+        const hoy = new Date();
+        const dia = hoy.getDate();
+        const mes = hoy.getMonth() + 1; // Enero = 0, por eso sumamos 1
+
+        if (dia === 26 && mes === 12) {
+          // 🎁 Día especial → activar la secuencia completa
+          iniciarSorpresa();
+        } else {
+          // ❄️ Otro día → mostrar solo la pantalla del regalo
+          document.getElementById("pantalla-1").classList.remove("oculto");
+          document.getElementById("pantalla-1").classList.add("visible");
+          // Ocultar las demás pantallas y el contenido
+          document.getElementById("pantalla-2").classList.add("oculto");
+          document.getElementById("pantalla-3").classList.add("oculto");
+          document.getElementById("contenido-wrapper").classList.add("oculto");
+
+          for (let i = 0; i < 30; i++) {
+            let snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.textContent = "❄";
+            snowflake.style.left = Math.random() * window.innerWidth + "px";
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(snowflake);
+          }
+        }
       });
+
+      function iniciarSorpresa() {
+        const pantallas = [
+          document.getElementById("pantalla-1"),
+          document.getElementById("pantalla-2"),
+          document.getElementById("pantalla-3"),
+        ];
+        const contenido = document.getElementById("contenido-wrapper");
+
+        let index = 0;
+
+        function mostrarPantalla() {
+          pantallas.forEach((p) => {
+            p.classList.remove("visible");
+            p.classList.add("oculto");
+          });
+
+          if (index < pantallas.length) {
+            const actual = pantallas[index];
+            actual.classList.remove("oculto");
+            setTimeout(() => actual.classList.add("visible"), 50);
+            index++;
+            setTimeout(mostrarPantalla, 10000);
+          } else {
+            document.getElementById("loader").classList.add("oculto");
+            contenido.classList.remove("oculto");
+            contenido.classList.add("visible");
+          }
+        }
+
+        mostrarPantalla();
+      }
 
       // Obtener el parámetro "dia" de la URL
       const params = new URLSearchParams(window.location.search);
@@ -373,7 +437,7 @@
             src: "assets/canciones/Villancicovide.mp3",
             title: "VillancicoVide",
             artist: "Aitoners Group",
-          }
+          },
         ];
         let currentIndex = 0;
 

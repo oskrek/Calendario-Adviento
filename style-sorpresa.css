@@ -199,3 +199,41 @@ body::before {
   color: #fff;
   cursor: pointer;
 }
+
+.oculto {
+  display: none;
+}
+
+.pantalla {
+  text-align: center;
+  font-size: 2em;
+  padding: 50px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.pantalla.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* ❄️ Efecto nieve */
+body {
+  background: #0d1b2a;
+  color: #fff;
+  overflow: hidden;
+}
+
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  font-size: 1.5em;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
