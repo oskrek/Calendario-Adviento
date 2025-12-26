@@ -221,47 +221,44 @@
         }
       }
 
-      function inicializarCarruselClips() {
-        document.addEventListener("DOMContentLoaded", () => {
-          const carousel = document.getElementById("clips-carrusel");
-          const container = document.getElementById("clips-container");
-          const leftBtn = carousel.querySelector(".arrow.left");
-          const rightBtn = carousel.querySelector(".arrow.right");
+      document.addEventListener("DOMContentLoaded", () => {
+        const carousel = document.getElementById("clips-carrusel");
+        const container = document.getElementById("clips-container");
+        const leftBtn = carousel.querySelector(".arrow.left");
+        const rightBtn = carousel.querySelector(".arrow.right");
 
-          if (!container) return;
+        if (!container) return;
 
-          // Calcula el ancho exacto de un clip + gap
-          const getStep = () => {
-            const firstClip = container.querySelector(".clip");
-            const gap = 16; // debe coincidir con el CSS .track gap
-            return (
-              (firstClip
-                ? firstClip.offsetWidth
-                : container.clientWidth * 0.8) + gap
-            );
-          };
-
-          leftBtn.addEventListener("click", () => {
-            container.scrollBy({ left: -getStep(), behavior: "smooth" });
-          });
-
-          rightBtn.addEventListener("click", () => {
-            container.scrollBy({ left: getStep(), behavior: "smooth" });
-          });
-
-          // Permite usar la rueda del mouse para scroll horizontal
-          container.addEventListener(
-            "wheel",
-            (e) => {
-              if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
-                container.scrollBy({ left: e.deltaY, behavior: "smooth" });
-                e.preventDefault();
-              }
-            },
-            { passive: false }
+        // Calcula el ancho exacto de un clip + gap
+        const getStep = () => {
+          const firstClip = container.querySelector(".clip");
+          const gap = 16; // debe coincidir con el CSS .track gap
+          return (
+            (firstClip ? firstClip.offsetWidth : container.clientWidth * 0.8) +
+            gap
           );
+        };
+
+        leftBtn.addEventListener("click", () => {
+          container.scrollBy({ left: -getStep(), behavior: "smooth" });
         });
-      }
+
+        rightBtn.addEventListener("click", () => {
+          container.scrollBy({ left: getStep(), behavior: "smooth" });
+        });
+
+        // Permite usar la rueda del mouse para scroll horizontal
+        container.addEventListener(
+          "wheel",
+          (e) => {
+            if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+              container.scrollBy({ left: e.deltaY, behavior: "smooth" });
+              e.preventDefault();
+            }
+          },
+          { passive: false }
+        );
+      });
 
       function inicializarCarrusel() {
         const carousel = document.getElementById("carousel");
