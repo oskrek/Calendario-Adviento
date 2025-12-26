@@ -44,11 +44,9 @@
     <script>
       // Detectar cuando la página terminó de cargar
       window.addEventListener("load", () => {
-        const hoy = new Date();
-        const dia = hoy.getDate();
-        const mes = hoy.getMonth() + 1;
+        const dia = params.get("dia");
 
-        if (dia === 26 && mes === 12) {
+        if (dia === 26) {
           iniciarSorpresa();
         } else {
           // Otro día → solo mostrar el regalo
@@ -57,16 +55,6 @@
           document.getElementById("pantalla-2").classList.add("oculto");
           document.getElementById("pantalla-3").classList.add("oculto");
           document.getElementById("contenido-wrapper").classList.add("oculto");
-
-          // ❄️ nieve
-          for (let i = 0; i < 30; i++) {
-            let snowflake = document.createElement("div");
-            snowflake.classList.add("snowflake");
-            snowflake.textContent = "❄";
-            snowflake.style.left = Math.random() * window.innerWidth + "px";
-            snowflake.style.animationDuration = Math.random() * 3 + 2 + "s";
-            document.body.appendChild(snowflake);
-          }
         }
       });
 
@@ -91,12 +79,15 @@
             actual.classList.remove("oculto");
             setTimeout(() => actual.classList.add("visible"), 50);
             index++;
-            setTimeout(mostrarPantalla, 3000); // ⏱ cambia cada 3s
+            setTimeout(mostrarPantalla, 8000); // ⏱ cambia cada 3s
           } else {
+            // Ocultar loader completo
             document.getElementById("loader").classList.add("oculto");
+
+            // Mostrar contenido
             contenido.classList.remove("oculto");
             contenido.classList.add("visible");
-            document.body.classList.add("loaded"); // activa el fade-in del contenido
+            document.body.classList.add("loaded");
           }
         }
 

@@ -199,7 +199,7 @@ body::before {
 }
 
 .oculto {
-  display: none;
+  display: none !important;
 }
 
 .pantalla {
@@ -231,7 +231,10 @@ body {
 }
 
 @keyframes fall {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh); }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
-
