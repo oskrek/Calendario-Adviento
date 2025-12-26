@@ -54,7 +54,9 @@
           document.getElementById("pantalla-1").classList.add("visible");
           document.getElementById("pantalla-2").classList.add("oculto");
           document.getElementById("pantalla-3").classList.add("oculto");
-          document.getElementById("contenido-wrapper").classList.add("oculto");
+          setTimeout(() => {
+            document.getElementById("loader").classList.add("oculto");
+          }, 3000);
         }
       });
 
