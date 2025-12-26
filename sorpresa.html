@@ -101,7 +101,7 @@
             actual.classList.remove("oculto");
             setTimeout(() => actual.classList.add("visible"), 50);
             index++;
-            setTimeout(mostrarPantalla, 5000); 
+            setTimeout(mostrarPantalla, 5000);
           } else {
             // Ocultar loader completo
             document.getElementById("loader").classList.add("oculto");
@@ -215,7 +215,19 @@
           case 22:
             inicializarReproductor2();
             break;
+          case 25:
+            inicializarCarruselClips();
+            break;
         }
+      }
+
+      function inicializarCarruselClips() {
+        const container = document.getElementById("clips-container");
+        const scrollAmount = container.clientWidth * 0.8; // desplaza casi un clip completo
+        container.scrollBy({
+          left: direction * scrollAmount,
+          behavior: "smooth",
+        });
       }
 
       function inicializarCarrusel() {
