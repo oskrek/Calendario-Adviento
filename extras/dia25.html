@@ -1,48 +1,53 @@
 <style>
-  #clips-carrusel {
+  .carousel {
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto;
-    overflow: hidden;
     position: relative;
   }
 
-  #clips-container {
+  .track {
     display: flex;
-    gap: 1rem;
-    scroll-behavior: smooth;
+    gap: 16px; /* usado en JS para el cálculo */
     overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.1);
+    scroll-snap-type: x mandatory;
   }
 
-  #clips-container iframe {
+  .track::-webkit-scrollbar { height: 10px; }
+  .track::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 10px; }
+
+  .clip {
     flex: 0 0 80%;
-    aspect-ratio: 16/9;
+    scroll-snap-align: center;
+    aspect-ratio: 16 / 9;
     border: 0;
     border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
   }
 
   .arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
+    width: 44px; height: 44px;
+    display: grid; place-items: center;
     cursor: pointer;
     border-radius: 50%;
-    font-size: 1.5rem;
     z-index: 10;
+    transition: box-shadow .2s, transform .2s;
   }
-
-  .arrow.left {
-    left: -2rem;
-  }
-  .arrow.right {
-    right: -2rem;
-  }
+  .arrow:hover { box-shadow: 0 0 16px rgba(0,255,200,0.6); transform: translateY(-50%) scale(1.05); }
+  .arrow.left { left: 8px; }
+  .arrow.right { right: 8px; }
 </style>
+
 
 <p
   style="
@@ -54,10 +59,10 @@
 >
   ✨ Clips de algunos momentos divertidos que ocurrieron este año.<br />
 </p>
-<div id="clips-carrusel">
-  <button class="arrow left" onclick="scrollClips(-1)">‹</button>
+<div class="carousel" id="clips-carrusel">
+  <button class="arrow left" aria-label="Anterior">‹</button>
 
-  <div id="clips-container">
+  <div class="track" id="clips-container">
     <iframe
       src="https://clips.twitch.tv/embed?clip=ObliviousMildLardGOWSkull-EPKKWUxm5WyydUbP&parent=oskrek.github.io"
       allowfullscreen
@@ -107,13 +112,6 @@
     >
     </iframe>
   </div>
-  <button class="arrow right" onclick="scrollClips(1)">›</button>
+  <button class="arrow right" aria-label="Siguiente">›</button>
 </div>
-<script>
-  function scrollClips(direction) {
-    const container = document.getElementById('clips-container');
-    const scrollAmount = container.clientWidth * 0.8; // desplaza casi un clip completo
-    container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-  }
-</script>
 
