@@ -221,7 +221,7 @@
         }
       }
 
-      document.addEventListener("DOMContentLoaded", () => {
+      function inicializarCarruselClips() {
         const carousel = document.getElementById("clips-carrusel");
         const container = document.getElementById("clips-container");
         const leftBtn = carousel.querySelector(".arrow.left");
@@ -239,13 +239,16 @@
           );
         };
 
-        leftBtn.addEventListener("click", () => {
-          container.scrollBy({ left: -getStep(), behavior: "smooth" });
-        });
-
-        rightBtn.addEventListener("click", () => {
-          container.scrollBy({ left: getStep(), behavior: "smooth" });
-        });
+        if (leftBtn) {
+          leftBtn.addEventListener("click", () => {
+            container.scrollBy({ left: -getStep(), behavior: "smooth" });
+          });
+        }
+        if (rightBtn) {
+          rightBtn.addEventListener("click", () => {
+            container.scrollBy({ left: getStep(), behavior: "smooth" });
+          });
+        }
 
         // Permite usar la rueda del mouse para scroll horizontal
         container.addEventListener(
@@ -258,7 +261,7 @@
           },
           { passive: false }
         );
-      });
+      }
 
       function inicializarCarrusel() {
         const carousel = document.getElementById("carousel");
