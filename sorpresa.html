@@ -18,10 +18,16 @@
         <img src="assets/images/regalo.PNG" alt="Cargando sorpresa..." />
       </div>
       <div class="pantalla oculto" id="pantalla-2">
-        <h2>¿Estás preparado?</h2>
+        <h2>Y por último, pero no menos importante</h2>
       </div>
       <div class="pantalla oculto" id="pantalla-3">
-        <h2>¡Cierra los ojos!</h2>
+        <h2>¿Estás preparado?</h2>
+      </div>
+      <div class="pantalla oculto" id="pantalla-4">
+        <h2>Pero primero una cosa</h2>
+      </div>
+      <div class="pantalla oculto" id="pantalla-5">
+        <h2>Cierra los ojos</h2>
       </div>
     </div>
 
@@ -58,6 +64,8 @@
           document.getElementById("pantalla-1").classList.add("visible");
           document.getElementById("pantalla-2").classList.add("oculto");
           document.getElementById("pantalla-3").classList.add("oculto");
+          document.getElementById("pantalla-4").classList.add("oculto");
+          document.getElementById("pantalla-5").classList.add("oculto");
 
           setTimeout(() => {
             document.getElementById("loader").classList.add("oculto");
@@ -75,6 +83,8 @@
           document.getElementById("pantalla-1"),
           document.getElementById("pantalla-2"),
           document.getElementById("pantalla-3"),
+          document.getElementById("pantalla-4"),
+          document.getElementById("pantalla-5"),
         ];
         const contenido = document.getElementById("contenido-wrapper");
 
@@ -147,8 +157,8 @@
         21: "Rompecabezas III",
         22: "Canciones De Suno III",
         23: "Aitoners Awards",
-        24: "Clips Del Año",
-        25: "Rompecabezas",
+        24: "Rompecabezas",
+        25: "Clips Del Año",
       };
 
       document.getElementById("contenido").textContent =
