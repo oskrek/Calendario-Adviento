@@ -224,19 +224,22 @@
       function inicializarCarruselClips() {
         const carousel = document.getElementById("clips-carrusel");
         const container = document.getElementById("clips-container");
+        const clips = container.querySelectorAll(".clip");
         const leftBtn = carousel.querySelector(".arrow.left");
         const rightBtn = carousel.querySelector(".arrow.right");
 
-        if (!container) return;
+        if (!container || clips.length === 0) return;
 
-        // Calcula el ancho exacto de un clip + gap
+        // Asegura que todos los clips tengan el mismo ancho que el primero
+        const firstWidth = clips[0].offsetWidth;
+        clips.forEach((clip) => {
+          clip.style.width = firstWidth + "px";
+        });
+
         const getStep = () => {
-          const firstClip = container.querySelector(".clip");
-          const gap = 16; // debe coincidir con el CSS .track gap
-          return (
-            (firstClip ? firstClip.offsetWidth : container.clientWidth * 0.8) +
-            gap
-          );
+          const styles = getComputedStyle(container);
+          const gap = parseFloat(styles.gap) || 16;
+          return firstWidth + gap;
         };
 
         if (leftBtn) {
@@ -244,13 +247,13 @@
             container.scrollBy({ left: -getStep(), behavior: "smooth" });
           });
         }
+
         if (rightBtn) {
           rightBtn.addEventListener("click", () => {
             container.scrollBy({ left: getStep(), behavior: "smooth" });
           });
         }
 
-        // Permite usar la rueda del mouse para scroll horizontal
         container.addEventListener(
           "wheel",
           (e) => {
