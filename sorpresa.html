@@ -44,23 +44,21 @@
     <script>
       // Detectar cuando la página terminó de cargar
       window.addEventListener("load", () => {
-        document.body.classList.add("loaded");
         const hoy = new Date();
         const dia = hoy.getDate();
-        const mes = hoy.getMonth() + 1; // Enero = 0, por eso sumamos 1
+        const mes = hoy.getMonth() + 1;
 
         if (dia === 26 && mes === 12) {
-          // 🎁 Día especial → activar la secuencia completa
           iniciarSorpresa();
         } else {
-          // ❄️ Otro día → mostrar solo la pantalla del regalo
+          // Otro día → solo mostrar el regalo
           document.getElementById("pantalla-1").classList.remove("oculto");
           document.getElementById("pantalla-1").classList.add("visible");
-          // Ocultar las demás pantallas y el contenido
           document.getElementById("pantalla-2").classList.add("oculto");
           document.getElementById("pantalla-3").classList.add("oculto");
           document.getElementById("contenido-wrapper").classList.add("oculto");
 
+          // ❄️ nieve
           for (let i = 0; i < 30; i++) {
             let snowflake = document.createElement("div");
             snowflake.classList.add("snowflake");
@@ -93,11 +91,12 @@
             actual.classList.remove("oculto");
             setTimeout(() => actual.classList.add("visible"), 50);
             index++;
-            setTimeout(mostrarPantalla, 10000);
+            setTimeout(mostrarPantalla, 3000); // ⏱ cambia cada 3s
           } else {
             document.getElementById("loader").classList.add("oculto");
             contenido.classList.remove("oculto");
             contenido.classList.add("visible");
+            document.body.classList.add("loaded"); // activa el fade-in del contenido
           }
         }
 
