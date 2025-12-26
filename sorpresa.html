@@ -44,7 +44,11 @@
     <script>
       // Detectar cuando la página terminó de cargar
       window.addEventListener("load", () => {
-        const dia = params.get("dia");
+        // Obtener parámetros de la URL
+        const params = new URLSearchParams(window.location.search);
+        const dia = parseInt(params.get("dia"), 10);
+
+        const contenido = document.getElementById("contenido-wrapper");
 
         if (dia === 26) {
           iniciarSorpresa();
@@ -54,9 +58,15 @@
           document.getElementById("pantalla-1").classList.add("visible");
           document.getElementById("pantalla-2").classList.add("oculto");
           document.getElementById("pantalla-3").classList.add("oculto");
+
           setTimeout(() => {
             document.getElementById("loader").classList.add("oculto");
-          }, 3000);
+          }, 5000);
+
+          // Mostrar contenido
+          contenido.classList.remove("oculto");
+          contenido.classList.add("visible");
+          document.body.classList.add("loaded");
         }
       });
 
@@ -81,7 +91,7 @@
             actual.classList.remove("oculto");
             setTimeout(() => actual.classList.add("visible"), 50);
             index++;
-            setTimeout(mostrarPantalla, 8000); // ⏱ cambia cada 3s
+            setTimeout(mostrarPantalla, 5000); 
           } else {
             // Ocultar loader completo
             document.getElementById("loader").classList.add("oculto");
